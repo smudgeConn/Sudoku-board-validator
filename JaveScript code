@@ -1,0 +1,196 @@
+function validateSudoku(board) {
+  let answer = true;
+  let column1 = [];
+  let column2 = [];
+  let column3 = [];
+  let column4 = [];
+  let column5 = [];
+  let column6 = [];
+  let column7 = [];
+  let column8 = [];
+  let column9 = [];
+  let box1 = [];
+  let box2 = [];
+  let box3 = [];
+  let box4 = [];
+  let box5 = [];
+  let box6 = [];
+  let box7 = [];
+  let box8 = [];
+  let box9 = [];
+
+//check validity and rows  
+  for (let i = 0; i < board.length; i++) {
+    
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i].indexOf(board[i][j]) != board[i].lastIndexOf(board[i][j]) || board[i][j] == 0) {
+        answer = false;
+       }
+    }
+    
+//create columns    
+        column1.push(board[i][0]);
+        column2.push(board[i][1]);
+        column3.push(board[i][2]);
+        column4.push(board[i][3]);
+        column5.push(board[i][4]);
+        column6.push(board[i][5]);
+        column7.push(board[i][6]);
+        column8.push(board[i][7]);
+        column9.push(board[i][8]);
+      }
+  
+//check columns for validity
+  for (let c = 0; c < column1.length; c++) {
+      if (column1.indexOf(column1[c]) != column1.lastIndexOf(column1[c])) {
+        answer = false;
+      }
+    else if (column2.indexOf(column2[c]) != column2.lastIndexOf(column2[c])) {
+        answer = false;
+      }
+    else if (column3.indexOf(column3[c]) != column3.lastIndexOf(column3[c])) {
+        answer = false;
+      }
+    else if (column4.indexOf(column4[c]) != column4.lastIndexOf(column4[c])) {
+        answer = false;
+      }
+    else if (column5.indexOf(column5[c]) != column5.lastIndexOf(column5[c])) {
+        answer = false;
+      }
+    else if (column6.indexOf(column6[c]) != column6.lastIndexOf(column6[c])) {
+        answer = false;
+      }
+    else if (column7.indexOf(column7[c]) != column7.lastIndexOf(column7[c])) {
+        answer = false;
+      }
+    else if (column8.indexOf(column8[c]) != column8.lastIndexOf(column8[c])) {
+        answer = false;
+      }
+    else if (column9.indexOf(column9[c]) != column9.lastIndexOf(column9[c])) {
+        answer = false;
+      }
+    }
+
+//create boxes
+        box1.push(board[0][0])
+        box1.push(board[0][1])
+        box1.push(board[0][2])
+        box1.push(board[1][0])
+        box1.push(board[1][1])
+        box1.push(board[1][2])
+        box1.push(board[2][0])
+        box1.push(board[2][1])
+        box1.push(board[2][2])
+        
+        box2.push(board[0][3])
+        box2.push(board[0][4])
+        box2.push(board[0][5])
+        box2.push(board[1][3])
+        box2.push(board[1][4])
+        box2.push(board[1][5])
+        box2.push(board[2][3])
+        box2.push(board[2][4])
+        box2.push(board[2][5])
+        
+        box3.push(board[0][6])
+        box3.push(board[0][7])
+        box3.push(board[0][8])
+        box3.push(board[1][6])
+        box3.push(board[1][7])
+        box3.push(board[1][8])
+        box3.push(board[2][6])
+        box3.push(board[2][7])
+        box3.push(board[2][8])
+        
+        box4.push(board[3][0])
+        box4.push(board[3][1])
+        box4.push(board[3][2])
+        box4.push(board[4][0])
+        box4.push(board[4][1])
+        box4.push(board[4][2])
+        box4.push(board[5][0])
+        box4.push(board[5][1])
+        box4.push(board[5][2])
+        
+        box5.push(board[3][3])
+        box5.push(board[3][4])
+        box5.push(board[3][5])
+        box5.push(board[4][3])
+        box5.push(board[4][4])
+        box5.push(board[4][5])
+        box5.push(board[5][3])
+        box5.push(board[5][4])
+        box5.push(board[5][5])
+        
+        box6.push(board[3][6])
+        box6.push(board[3][7])
+        box6.push(board[3][8])
+        box6.push(board[4][6])
+        box6.push(board[4][7])
+        box6.push(board[4][8])
+        box6.push(board[5][6])
+        box6.push(board[5][7])
+        box6.push(board[5][8])
+        
+        box7.push(board[6][0])
+        box7.push(board[6][1])
+        box7.push(board[6][2])
+        box7.push(board[7][0])
+        box7.push(board[7][1])
+        box7.push(board[7][2])
+        box7.push(board[8][0])
+        box7.push(board[8][1])
+        box7.push(board[8][2])
+        
+        box8.push(board[6][3])
+        box8.push(board[6][4])
+        box8.push(board[6][5])
+        box8.push(board[7][3])
+        box8.push(board[7][4])
+        box8.push(board[7][5])
+        box8.push(board[8][3])
+        box8.push(board[8][4])
+        box8.push(board[8][5])
+        
+        box9.push(board[6][6])
+        box9.push(board[6][7])
+        box9.push(board[6][8])
+        box9.push(board[7][6])
+        box9.push(board[7][7])
+        box9.push(board[7][8])
+        box9.push(board[8][6])
+        box9.push(board[8][7])
+        box9.push(board[8][8])
+    
+//check boxes for validity
+    for (let b = 0; b < box1.length; b++) {
+      if (box1.indexOf(box1[b]) != box1.lastIndexOf(box1[b])) {
+        answer = false;
+      }
+      else if (box2.indexOf(box2[b]) != box2.lastIndexOf(box2[b])) {
+        answer = false;
+      }
+      else if (box3.indexOf(box3[b]) != box3.lastIndexOf(box3[b])) {
+        answer = false;
+      }
+      else if (box4.indexOf(box4[b]) != box4.lastIndexOf(box4[b])) {
+        answer = false;
+      }
+      else if (box5.indexOf(box5[b]) != box5.lastIndexOf(box5[b])) {
+        answer = false;
+      }
+      else if (box6.indexOf(box6[b]) != box6.lastIndexOf(box6[b])) {
+        answer = false;
+      }
+      else if (box7.indexOf(box7[b]) != box7.lastIndexOf(box7[b])) {
+        answer = false;
+      }
+      else if (box8.indexOf(box8[b]) != box8.lastIndexOf(box8[b])) {
+        answer = false;
+      }
+      else if (box9.indexOf(box9[b]) != box9.lastIndexOf(box9[b])) {
+        answer = false;
+      }
+    }
+  return answer;
+  }
